@@ -1,5 +1,6 @@
 import {DotPatternDemo} from "./components/DotPatternDemo.tsx";
 import faceSilhouette from "./assets/face-silhouette.png";
+import {Link} from "react-router-dom";
 
 export function Homepage() {
     return (
@@ -50,14 +51,14 @@ export function Homepage() {
             </div>
 
             {/* BUTTON — overlayed on the face near the bottom */}
-            <a
-                href="/ScanPage"
+            <Link
+                to="/ScanPage"
                 className="absolute z-10 right-24 md:right-25 bottom-[clamp(6rem,12vh,12rem)]
              inline-flex h-14 px-8 items-center justify-center
              rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white text-lg"
             >
                 Find out more
-            </a>
+            </Link>
         </section>
     );
 }
