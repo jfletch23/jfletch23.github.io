@@ -46,7 +46,7 @@ export function Homepage() {
                 </h1>
 
                 <p className="mt-6 max-w-2xl text-white/80 text-base md:text-lg">
-                    This appears over the dot pattern background
+                    This appears over the dot pattern background.
                 </p>
             </div>
 
