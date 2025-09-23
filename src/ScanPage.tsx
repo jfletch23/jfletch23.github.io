@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { DotPatternDemo } from "../components/DotPatternDemo.tsx";
-import { startCamera, stopCamera } from "../lib/camera.ts";
-import { initFaceLandmarker, detectFace, type FaceLandmarkerResult } from "../lib/faceLandmarker.ts";
-import { FaceOverlay } from "../components/FaceOverlay.tsx";
-import { ReadingsPanel } from "../components/ReadingsPanel.tsx";
+import {DotPatternDemo} from "./components/DotPatternDemo.tsx";
+import { startCamera, stopCamera } from "./lib/camera.ts";
+import { initFaceLandmarker, detectFace, type FaceLandmarkerResult } from "./lib/faceLandmarker.ts";
+import { FaceOverlay } from "./components/FaceOverlay.tsx";
+import { ReadingsPanel } from "./components/ReadingsPanel.tsx";
 
 // === UI controls ============================================================
 const SHOW_TITLE_AND_CTA = false; // <- default OFF so they don't show unexpectedly

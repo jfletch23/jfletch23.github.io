@@ -1,5 +1,5 @@
-import { DotPatternDemo } from "../components/DotPatternDemo";
-import faceSilhouette from "../assets/face-silhouette.png";
+import {DotPatternDemo} from "./components/DotPatternDemo.tsx";
+import faceSilhouette from "./assets/face-silhouette.png";
 
 export function Homepage() {
     return (
