@@ -6,9 +6,11 @@ import App from "./App";
 // ✅ make sure Tailwind/global styles are loaded
 import "./index.css";
 
+const repoName = '/';
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename={repoName}>
             <App />
         </BrowserRouter>
     </React.StrictMode>
