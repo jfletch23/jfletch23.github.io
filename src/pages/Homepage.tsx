@@ -1,5 +1,5 @@
-import {DotPatternDemo} from "./components/DotPatternDemo.tsx";
-import faceSilhouette from "./assets/face-silhouette.png";
+import {DotPatternDemo} from "../components/DotPatternDemo.tsx";
+import faceSilhouette from "../assets/face-silhouette.png";
 import {Link} from "react-router-dom";
 
 export function Homepage() {
