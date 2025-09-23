@@ -51,7 +51,7 @@ export function Homepage() {
 
             {/* BUTTON — overlayed on the face near the bottom */}
             <a
-                href="/scan"
+                href="/ScanPage"
                 className="absolute z-10 right-24 md:right-25 bottom-[clamp(6rem,12vh,12rem)]
              inline-flex h-14 px-8 items-center justify-center
              rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white text-lg"

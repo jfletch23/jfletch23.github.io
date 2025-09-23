@@ -10,7 +10,7 @@ export default function App() {
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/scan" element={<ScanPage />} />
+            <Route path="/ScanPage" element={<ScanPage />} />
         </Routes>
     );
 }
