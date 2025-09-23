@@ -1,10 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-// NOTE: your filename looked like "Homepage.tsx" in the import you sent.
-// It should be "Homepage.tsx". Update the import path/filename accordingly.
 import {Homepage} from "./pages/Homepage.tsx";
 import {ScanPage} from "./pages/ScanPage.tsx";
-// Test comment
-
 
 export default function App() {
     return (
