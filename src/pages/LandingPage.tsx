@@ -1,10 +1,10 @@
-// src/pages/TestLandingPage.tsx
+// src/pages/LandingPage.tsx
 "use client";
 
 import { Card, CardContent } from "../components/ui/card.tsx";
 import {Link} from "react-router-dom";
 
-export function TestLandingPage() {
+export function LandingPage() {
     return (
         <div className="min-h-screen bg-[#1f1f1f] text-white flex flex-col">
             {/* Navbar */}
@@ -35,7 +35,7 @@ export function TestLandingPage() {
 
             {/* Mission Statement */}
             <section className="py-16 px-6 md:px-20 text-center bg-[#1f1f1f]">
-                <h2 className="text-3xl font-bold text-teal-500 mb-6">Our Mission</h2>
+                <h2 className="text-3xl font-bold text-[#e3725e] mb-6">Our Mission</h2>
                 <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
                     We strive to harness technology responsibly, balancing innovation with
                     ethical design, and shaping the future of human-AI collaboration in
