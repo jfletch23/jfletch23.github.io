@@ -7,15 +7,6 @@ import {Link} from "react-router-dom";
 export function LandingPage() {
     return (
         <div className="min-h-screen bg-[#1f1f1f] text-white flex flex-col">
-            {/* Navbar */}
-            <nav className="w-full bg-[#2a2a2a] px-6 py-4 flex justify-center">
-                <div className="space-x-8 text-xl font-semibold">
-                    <a href="#" className="hover:text-teal-500">Home</a>
-                    <a href="#" className="hover:text-teal-500">About</a>
-                    <a href="#" className="hover:text-teal-500">Contact</a>
-                </div>
-            </nav>
-
             {/* Top Teal Band */}
             <div className="w-full h-2 bg-teal-500" />
 
@@ -55,9 +46,9 @@ export function LandingPage() {
                         },
                         {
                             src: "/quiz.png",
-                            title: "Bias Quiz",
-                            text: "Explore how lighting and contrast affect results.",
-                            href: "/quiz",
+                            title: "Test Your Knowledge!",
+                            text: "Learn some surprising facts about facial recognition technology",
+                            href: "/Quiz",
                         },
                         {
                             src: "/Scan.jpeg",
