@@ -27,7 +27,7 @@ export function FaceOverlay({ videoEl, result }: Props) {
 
         if (!result?.faceLandmarks?.length) return;
 
-        const GREEN = "#22c55e";
+        const GREEN = "#1ec8c8";
         ctx.fillStyle = GREEN;
         ctx.strokeStyle = GREEN;
         ctx.lineWidth = 1;

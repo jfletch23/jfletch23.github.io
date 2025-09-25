@@ -22,7 +22,7 @@ export function ScanPage() {
     const [result, setResult] = useState<FaceLandmarkerResult | null>(null);
     const facePresent = (result?.faceLandmarks?.[0]?.length ?? 0) > 0;
 
-    const GREEN = "#22c55e";
+    const GREEN = "#1ec8c8";
 
     // Control when headline/CTA are visible
     const uiVisible =
@@ -153,7 +153,7 @@ export function ScanPage() {
                             <button
                                 onClick={() => setConsented(true)}
                                 className="inline-flex items-center justify-center h-11 px-5 rounded-xl
-                           bg-green-600 hover:bg-green-500 text-white font-semibold"
+                           bg-teal-500 hover:bg-[#e3725e] text-white font-semibold"
                             >
                                 Start camera
                             </button>

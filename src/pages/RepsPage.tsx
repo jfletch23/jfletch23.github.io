@@ -63,7 +63,7 @@ export function RepsPage() {
     return (
         <div className="flex h-screen">
             {/* Left column - Search and Representative List */}
-            <div className="w-1/2 border-r bg-gray-50 flex flex-col">
+            <div className="w-1/2 bg-[#1f1f1f] flex flex-col">
                 {/* Search form */}
                 <SearchForm onSearch={handleSearch} />
 
@@ -77,7 +77,7 @@ export function RepsPage() {
 
                     {searchLocation && !loading && (
                         <div className="mb-4">
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-white">
                                 Showing representatives for: <span className="font-medium">{searchLocation}</span>
                             </p>
                         </div>
@@ -86,7 +86,7 @@ export function RepsPage() {
                     {loading ? (
                         <div className="flex items-center justify-center py-8">
                             <div className="animate-spin h-6 w-6 border-2 border-blue-500 border-t-transparent rounded-full mr-2"></div>
-                            <span className="text-sm text-gray-600">Finding representatives...</span>
+                            <span className="text-sm text-white">Finding representatives...</span>
                         </div>
                     ) : (
                         <RepresentativeList
@@ -99,7 +99,7 @@ export function RepsPage() {
             </div>
 
             {/* Right column - Email Template */}
-            <div className="w-1/2 bg-white">
+            <div className="w-1/2 bg-[#2a2a2a]">
                 <div className="h-full overflow-y-auto p-4">
                     <EmailTemplate selectedRep={selectedRep} />
                 </div>

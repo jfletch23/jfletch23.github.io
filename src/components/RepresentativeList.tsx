@@ -16,7 +16,7 @@ export function RepresentativeList({ reps, selectedRep, onSelect }: Props) {
         <div className="space-y-6">
             {/* Federal Section */}
             <div>
-                <h2 className="font-semibold mb-2">Federal Representatives</h2>
+                <h2 className="font-semibold text-white mb-2">Federal Representatives</h2>
                 {reps.federal.length === 0 ? (
                     <div className="text-sm text-muted-foreground">
                         No federal representatives found.
@@ -35,7 +35,7 @@ export function RepresentativeList({ reps, selectedRep, onSelect }: Props) {
 
             {/* State/Local Section */}
             <div>
-                <h2 className="font-semibold mb-2">State / Local Representatives</h2>
+                <h2 className="font-semibold mb-2 text-white">State / Local Representatives</h2>
                 {reps.stateLocal.length === 0 ? (
                     <div className="text-sm text-muted-foreground">
                         No state/local representatives found.

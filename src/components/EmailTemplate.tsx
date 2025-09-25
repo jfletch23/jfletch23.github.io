@@ -1,7 +1,7 @@
 // src/components/EmailTemplate.tsx
-import type {Representative} from "../lib/types.ts";
+import type { Representative } from "../lib/types.ts";
 import { Button } from "./ui/button";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
     selectedRep: Representative | null;
@@ -9,6 +9,7 @@ type Props = {
 
 export function EmailTemplate({ selectedRep }: Props) {
     const [text, setText] = useState("");
+    const [copied, setCopied] = useState(false);
 
     useEffect(() => {
         if (selectedRep) {
@@ -22,24 +23,35 @@ export function EmailTemplate({ selectedRep }: Props) {
         }
     }, [selectedRep]);
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(text).catch(() => {});
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1200);
+        } catch {
+            // ignore
+        }
     };
 
     return (
         <div className="space-y-4">
-            <h2 className="font-semibold">Email Template</h2>
+            <h2 className="font-semibold text-white">Email Template</h2>
             {selectedRep ? (
                 <>
           <textarea
-              className="w-full min-h-[200px] border rounded-md p-2 text-sm"
+              className="w-full min-h-[200px] border rounded-md p-2 text-sm text-white bg-[#2a2a2a] border-gray-700"
               value={text}
               onChange={(e) => setText(e.target.value)}
           />
-                    <Button onClick={handleCopy}>Copy to Clipboard</Button>
+                    <Button
+                        onClick={handleCopy}
+                        className="bg-[#e3725e] hover:bg-[#cc5f4c] text-white transition-colors"
+                    >
+                        {copied ? "Copied!" : "Copy to Clipboard"}
+                    </Button>
                 </>
             ) : (
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-white/70">
                     Select a representative to load the email template.
                 </div>
             )}

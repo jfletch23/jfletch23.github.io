@@ -6,7 +6,7 @@ type Props = {
 };
 
 export function ReadingsPanel({ result }: Props) {
-    const GREEN = "#22c55e";
+    const GREEN = "#1ec8c8";
 
     const hasFace = !!result?.faceLandmarks?.length;
     const lm = hasFace ? result!.faceLandmarks[0] : null;
