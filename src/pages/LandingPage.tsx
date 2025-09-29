@@ -78,6 +78,50 @@ export function LandingPage() {
                     ))}
                 </div>
             </section>
+
+            <section className="py-16 px-6 md:px-20 bg-[#2a2a2a]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        {
+                            src: "/ProblemsIcon.jpg",
+                            title: "Problems Info",
+                            text: "Investigate the current issues with facial recognition technology",
+                            href: "/ProblemsPage",
+                        },
+                        {
+                            src: "/SolutionsIcon.jpg",
+                            title: "Solutions Info",
+                            text: "Explore ways to improve facial recognition technology",
+                            href: "/SolutionsPage",
+                        },
+                        {
+                            src: "/SourcesIcon.png",
+                            title: "Sources",
+                            text: "Read about our sources",
+                            href: "/SourcesPage",
+                        },
+                    ].map((item, i) => (
+                        <Link key={i} to={item.href} className="block group">
+                            <Card className="bg-[#1f1f1f] border border-gray-700 rounded-2xl shadow-md overflow-hidden transition-transform duration-200 group-hover:scale-[1.02]">
+                                <div className="relative w-full aspect-square overflow-hidden">
+                                    <img
+                                        src={item.src}
+                                        alt={item.title}
+                                        loading="lazy"
+                                        className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.05]"
+                                    />
+                                </div>
+                                <CardContent className="p-6 text-center">
+                                    <h3 className="text-xl font-semibold text-[#EAB308] mb-3">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-400">{item.text}</p>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
+            </section>
         </div>
     );
 }
