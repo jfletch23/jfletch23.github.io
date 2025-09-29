@@ -153,6 +153,7 @@ export function QuizPage() {
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
     const [isAnswered, setIsAnswered] = useState(false);
     const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+    const [quizStarted, setQuizStarted] = useState(false);
 
     const handleAnswerSelect = (value: string) => {
         const selectedIndex = parseInt(value, 10);
@@ -183,68 +184,105 @@ export function QuizPage() {
         setIsQuizCompleted(false);
     };
 
+    const startQuiz = () => {
+        setQuizStarted(true);
+    };
+
     const currentQuestion = quizData[currentQuestionIndex];
+
+    // Determine the content for the explanation card
+    let explanationContent = "Select an option to see feedback text.";
+    if (isAnswered && selectedAnswer !== null) {
+        explanationContent = currentQuestion.answers[selectedAnswer].feedback;
+    }
 
     return (
         <section className="relative min-h-screen bg-[#1f1f1f] overflow-hidden">
             <div className="relative z-10 px-6 py-24 md:py-32 flex flex-col items-center">
-                <h1 className="relative z-10 text-5xl md:text-6xl font-extrabold text-white">
-                    Test Your Knowledge!
-                </h1>
-                {/* Quiz content starts here */}
+                <Card className="shadow-2xl text-center mb-8">
+                    <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold text-white">
+                        Test Your Knowledge!
+                    </h1>
+                </Card>
 
-                <div className="mt-8 md:mt-16 w-full flex justify-center">
-                    <Card className="shadow-2xl">
-                        {!isQuizCompleted ? (
-                            <>
-                                <h2 className="text-2xl font-bold mb-4 text-center text-white">
-                                    {currentQuestion.questionText}
-                                </h2>
-                                <RadioGroup onValueChange={handleAnswerSelect} value={String(selectedAnswer)} disabled={isAnswered}>
-                                    {currentQuestion.answers.map((answer, index) => (
-                                        <RadioGroupItem
-                                            key={index}
-                                            value={String(index)}
-                                            selected={selectedAnswer === index}
-                                            isAnswered={isAnswered}
-                                            correctAnswerIndex={currentQuestion.correctAnswer}
-                                            selectedAnswer={selectedAnswer}
+                {!quizStarted ? (
+                    <div className="mt-8 md:mt-16 w-full flex justify-center">
+                        <Card className="shadow-2xl text-center">
+                            <p className="text-white text-lg mb-4">
+                                Check out our other pages prior to taking the quiz!
+                            </p>
+                            <Button onClick={startQuiz} className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500">
+                                Start Quiz
+                            </Button>
+                        </Card>
+                    </div>
+                ) : (
+                    <div className="mt-8 md:mt-16 w-full flex flex-col items-stretch md:flex-row md:justify-center md:space-x-8">
+                        {/* Left Card: The Quiz */}
+                        <Card className="shadow-2xl md:min-w-[400px]">
+                            {!isQuizCompleted ? (
+                                <>
+                                    <h2 className="text-3xl font-bold mb-2 text-center text-teal-500">
+                                        Question {currentQuestionIndex + 1}
+                                    </h2>
+                                    <h3 className="text-xl mb-4 text-center text-white">
+                                        {currentQuestion.questionText}
+                                    </h3>
+                                    <RadioGroup onValueChange={handleAnswerSelect} value={String(selectedAnswer)} disabled={isAnswered}>
+                                        {currentQuestion.answers.map((answer, index) => (
+                                            <RadioGroupItem
+                                                key={index}
+                                                value={String(index)}
+                                                selected={selectedAnswer === index}
+                                                isAnswered={isAnswered}
+                                                correctAnswerIndex={currentQuestion.correctAnswer}
+                                                selectedAnswer={selectedAnswer}
+                                            >
+                                                {answer.text}
+                                            </RadioGroupItem>
+                                        ))}
+                                    </RadioGroup>
+                                    {isAnswered && (
+                                        <Button
+                                            onClick={handleNextQuestion}
+                                            className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500"
                                         >
-                                            {answer.text}
-                                        </RadioGroupItem>
-                                    ))}
-                                </RadioGroup>
-
-                                {isAnswered && selectedAnswer !== null && (
-                                    <p className={`mt-4 text-center font-bold ${selectedAnswer === currentQuestion.correctAnswer ? 'text-green-600' : 'text-red-600'}`}>
-                                        {currentQuestion.answers[selectedAnswer].feedback}
+                                            {currentQuestionIndex === quizData.length - 1 ? 'Submit' : 'Next Question'}
+                                        </Button>
+                                    )}
+                                </>
+                            ) : (
+                                <div className="text-center text-white">
+                                    <h2 className="text-2xl font-bold mb-4">
+                                        Quiz Complete!
+                                    </h2>
+                                    <p className="text-lg mb-6">
+                                        You scored {score} out of {quizData.length}.
                                     </p>
-                                )}
-
-                                {isAnswered && (
-                                    <Button
-                                        onClick={handleNextQuestion}
-                                        className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500"
-                                    >
-                                        {currentQuestionIndex === quizData.length - 1 ? 'Submit' : 'Next Question'}
+                                    <Button onClick={resetQuiz} className="w-full bg-[#e3725e] hover:bg-teal-500">
+                                        Restart Quiz
                                     </Button>
-                                )}
-                            </>
-                        ) : (
-                            <div className="text-center text-white">
-                                <h2 className="text-2xl font-bold mb-4">
-                                    Quiz Complete!
-                                </h2>
-                                <p className="text-lg mb-6">
-                                    You scored {score} out of {quizData.length}.
-                                </p>
-                                <Button onClick={resetQuiz} className="w-full bg-[#e3725e] hover:bg-teal-500">
-                                    Restart Quiz
-                                </Button>
-                            </div>
+                                </div>
+                            )}
+                        </Card>
+
+                        {/* Right Card: The Explanation */}
+                        {isAnswered && !isQuizCompleted && (
+                            <Card className="shadow-2xl mt-8 md:mt-0 md:min-w-[400px] flex-1">
+                                <div className="flex flex-col h-full">
+                                    <h2 className="text-3xl font-bold mb-4 text-center text-[#e3725e]">
+                                        Explanation
+                                    </h2>
+                                    <div className="text-white text-md flex-1">
+                                        <h3 className="text-xl mb-4 text-center text-white">
+                                            {explanationContent}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </Card>
                         )}
-                    </Card>
-                </div>
+                    </div>
+                )}
             </div>
         </section>
     );
