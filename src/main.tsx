@@ -12,8 +12,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <nav className="w-full bg-[#2a2a2a] text-white px-6 py-4 flex justify-center">
                 <div className="space-x-8 text-xl font-semibold">
                     <a href="#" className="hover:text-teal-500">Home</a>
-                    <a href="#" className="hover:text-teal-500">About</a>
-                    <a href="#" className="hover:text-teal-500">Contact</a>
+                    <a href="#/ProblemsPage" className="hover:text-teal-500">Problems</a>
+                    <a href="#/SolutionsPage" className="hover:text-teal-500">Solutions</a>
+                    <a href="#/Quiz" className="hover:text-teal-500">Quiz</a>
+                    <a href="#/ScanPage" className="hover:text-teal-500">Facial Scan</a>
+                    <a href="#/Representatives" className="hover:text-teal-500">Representatives</a>
                 </div>
             </nav>
             <App />
