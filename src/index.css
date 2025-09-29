@@ -117,10 +117,25 @@ html, body {
 }
 
 @layer base {
+    /* Firefox global scrollbar */
     * {
-        @apply border-border outline-ring/50;
+        scrollbar-width: thin;
+        scrollbar-color: white transparent; /* thumb, track */
     }
-    body {
-        @apply bg-background text-foreground;
+
+    /* WebKit (Chrome/Edge/Safari) */
+    *::-webkit-scrollbar {
+        width: 8px;              /* or @apply w-2; */
+        height: 8px;
+    }
+    *::-webkit-scrollbar-track {
+        background: transparent; /* keep your dark bg visible */
+    }
+    *::-webkit-scrollbar-thumb {
+        background: white;       /* white thumb */
+        border-radius: 9999px;   /* fully rounded */
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: #e5e5e5;     /* light gray on hover */
     }
 }

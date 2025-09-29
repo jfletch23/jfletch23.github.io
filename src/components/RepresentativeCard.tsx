@@ -40,7 +40,7 @@ export function RepresentativeCard({ rep, selected, onSelect }: Props) {
                             size="sm"
                             asChild
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-[#e3725e] hover:bg-[#cc5f4c] text-white"
+                            className="bg-teal-500 hover:bg-[#e3725e] text-white"
                         >
                             <a href={`mailto:${rep.emails[0]}`}>Email</a>
                         </Button>
@@ -51,7 +51,7 @@ export function RepresentativeCard({ rep, selected, onSelect }: Props) {
                             size="sm"
                             asChild
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-[#e3725e] hover:bg-[#cc5f4c] text-white"
+                            className="bg-teal-500 hover:bg-[#e3725e] text-white"
                         >
                             <a
                                 href={rep.websites?.[0] || rep.contactForms?.[0] || "#"}

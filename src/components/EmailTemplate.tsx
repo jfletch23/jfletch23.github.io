@@ -35,7 +35,7 @@ export function EmailTemplate({ selectedRep }: Props) {
 
     return (
         <div className="space-y-4">
-            <h1 className="font-bold text-white text-3xl">Email Template</h1>
+            <h1 className="font-bold text-[#e3725e] text-4xl">Email Template</h1>
             {selectedRep ? (
                 <>
           <textarea
@@ -45,7 +45,7 @@ export function EmailTemplate({ selectedRep }: Props) {
           />
                     <Button
                         onClick={handleCopy}
-                        className="bg-[#e3725e] hover:bg-[#cc5f4c] text-white transition-colors"
+                        className="bg-[#e3725e] hover:bg-teal-500 text-white transition-colors"
                     >
                         {copied ? "Copied!" : "Copy to Clipboard"}
                     </Button>

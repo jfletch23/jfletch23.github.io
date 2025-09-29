@@ -196,13 +196,15 @@ export function SearchForm({ onSearch }: SearchFormProps) {
     return (
         <div className="bg-[#1f1f1f] shadow-sm">
             <div className="p-6">
-                <h1 className="font-semibold text-white text-3xl mb-4">Find Your Representatives</h1>
+                <h1 className="font-semibold text-teal-500 text-4xl mb-4">Find Your Representatives</h1>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="relative space-y-2">
-                        <Label htmlFor="location" className="text-sm font-medium text-white">
+                        <Label htmlFor="location" className="sr-only">
                             Location
                         </Label>
+                        <h2 className="text-lg font-semibold text-white">Enter Location</h2>
+
 
                         <div className="relative">
                             <Input
@@ -254,7 +256,7 @@ export function SearchForm({ onSearch }: SearchFormProps) {
 
                     <Button
                         type="submit"
-                        className="w-full bg-[#e3725e] hover:bg-blue-700 text-white font-medium py-2.5"
+                        className="w-full bg-teal-500 hover:bg-[#e3725e] text-white font-medium py-2.5"
                         disabled={!query.trim()}
                     >
                         Find Representatives
