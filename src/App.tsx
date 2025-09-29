@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import {ScanPage} from "./pages/ScanPage.tsx";
 import {RepsPage} from "./pages/RepsPage.tsx";
 import {LandingPage} from "./pages/LandingPage.tsx";
+import {SolutionsInfoPage} from "./pages/SolutionsInfoPage.tsx";
 
 export default function App() {
     return (
@@ -9,6 +10,7 @@ export default function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/ScanPage" element={<ScanPage />} />
             <Route path="/Representatives" element={<RepsPage />} />
+            <Route path="/SolutionsPage" element={<SolutionsInfoPage/>} />
         </Routes>
     );
 }

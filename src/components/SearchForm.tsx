@@ -196,7 +196,7 @@ export function SearchForm({ onSearch }: SearchFormProps) {
     return (
         <div className="bg-[#1f1f1f] shadow-sm">
             <div className="p-6">
-                <h2 className="text-lg font-semibold text-white mb-4">Find Your Representatives</h2>
+                <h1 className="font-semibold text-white text-3xl mb-4">Find Your Representatives</h1>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="relative space-y-2">

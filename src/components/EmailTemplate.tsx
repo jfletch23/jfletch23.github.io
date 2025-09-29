@@ -35,7 +35,7 @@ export function EmailTemplate({ selectedRep }: Props) {
 
     return (
         <div className="space-y-4">
-            <h2 className="font-semibold text-white">Email Template</h2>
+            <h1 className="font-bold text-white text-3xl">Email Template</h1>
             {selectedRep ? (
                 <>
           <textarea
