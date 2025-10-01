@@ -147,7 +147,7 @@ export function ScanPage() {
                             This demo runs <span className="text-white">entirely in your browser</span>.
                             Video and biometric readings are processed locally and{" "}
                             <span className="text-white">not saved or uploaded</span>. Click “Start camera”
-                            to allow your browser to access the camera and see what face trackers collect.
+                            to allow your browser to access the camera and see what face scanners collect.
                         </p>
                         <div className="mt-5 flex items-center gap-3">
                             <button
@@ -157,9 +157,6 @@ export function ScanPage() {
                             >
                                 Start camera
                             </button>
-                            <a href="/learn" className="text-white/70 hover:text-white text-sm underline">
-                                Learn more first
-                            </a>
                         </div>
                     </div>
                 </div>

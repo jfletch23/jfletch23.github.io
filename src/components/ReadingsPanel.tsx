@@ -1,5 +1,46 @@
-import type { FaceLandmarkerResult} from "@mediapipe/tasks-vision";
-import { eulerFromMatrix4} from "../lib/faceLandmarker.ts";
+import { type FaceLandmarkerResult } from "@mediapipe/tasks-vision";
+import { eulerFromMatrix4 } from "../lib/faceLandmarker.ts";
+import { useState, type ReactNode } from "react";
+import { Icon } from "@iconify/react";
+
+interface TooltipProps {
+    children: ReactNode;
+    text: string;
+}
+
+function Tooltip({ children, text }: TooltipProps) {
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Create a shared state for mouse leave
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const handleMouseEnter = () => {
+        clearTimeout(timeout);
+        setIsVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+        // Add a small delay (e.g., 100ms) to prevent flickering
+        timeout = setTimeout(() => {
+            setIsVisible(false);
+        }, 100);
+    };
+
+    return (
+        <div
+            className="relative inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            {children}
+            {isVisible && (
+                <div className="absolute z-50 p-2 bg-neutral-800 text-white text-sm rounded-lg shadow-lg left-[calc(100%+0.5rem)] top-1/2 -translate-y-1/2 w-48 text-left transition-opacity duration-300 opacity-100">
+                    {text}
+                </div>
+            )}
+        </div>
+    );
+}
 
 type Props = {
     result: FaceLandmarkerResult | null;
@@ -25,15 +66,27 @@ export function ReadingsPanel({ result }: Props) {
 
             <div className="mt-4 space-y-4 text-sm">
                 <section>
-                    <h3 className="font-semibold" style={{ color: GREEN }}>Detection</h3>
+                    <p className="font-semibold flex items-center" style={{ color: GREEN }}>
+                        Detection
+                    </p>
                     <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1">
                         <span className="text-white/70">Face detected:</span>
                         <span>{hasFace ? "Yes" : "No"}</span>
 
-                        <span className="text-white/70">Landmarks:</span>
+                        <div className="flex items-center">
+                            <span className="text-white/70">Landmarks:</span>
+                            <Tooltip text="Insert research here">
+                                <Icon icon="bi:question-circle" className="text-white/60 text-base ml-1 cursor-help" />
+                            </Tooltip>
+                        </div>
                         <span>{hasFace ? lm!.length : 0}</span>
 
-                        <span className="text-white/70">Blendshapes:</span>
+                        <div className="flex items-center">
+                            <span className="text-white/70">Blendshapes:</span>
+                            <Tooltip text="Insert more research here">
+                                <Icon icon="bi:question-circle" className="text-white/60 text-base ml-1 cursor-help" />
+                            </Tooltip>
+                        </div>
                         <span>{result?.faceBlendshapes?.[0]?.categories?.length ?? 0}</span>
                     </div>
                 </section>
