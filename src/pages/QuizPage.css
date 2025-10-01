@@ -1,0 +1,63 @@
+/* Base styles for the explanation card animation */
+.explanation-card-animated {
+    /* Default state when not animating or at the end of the exit animation */
+    opacity: 0;
+    /* Start off-screen to the right */
+    transform: translateX(100%);
+    transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+    flex-shrink: 0; /* Prevent it from shrinking in the flex container */
+    /* This ensures it aligns with the question card height */
+    align-self: flex-start;
+    /* Ensure it has a base width even when off-screen for calculation */
+    width: 100%; /* Take full width of its container before animation */
+    max-width: 400px; /* Or whatever max-width you want it to take */
+}
+
+/* Entering state */
+.explanation-card-enter {
+    opacity: 0;
+    transform: translateX(100%); /* Start to the right, off-screen */
+}
+
+.explanation-card-enter-active {
+    opacity: 1;
+    transform: translateX(0%); /* Slide to its normal position */
+}
+
+/* Exiting state */
+.explanation-card-exit {
+    opacity: 1;
+    transform: translateX(0%); /* Normal position before exiting */
+}
+
+.explanation-card-exit-active {
+    opacity: 0;
+    transform: translateX(100%); /* Slide back to the right, off-screen */
+}
+
+/* When in the "entered" state (visible), ensure it's part of the layout */
+.explanation-card-enter-done {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+/* For the parent container when explanation card is visible, to allow space */
+.quiz-and-explanation-container {
+    display: flex;
+    gap: 2rem; /* Space between cards */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.radio-blue-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
