@@ -9,7 +9,7 @@ import { ReadingsPanel } from "../components/ReadingsPanel.tsx";
 const SHOW_TITLE_AND_CTA = false; // <- default OFF so they don't show unexpectedly
 type Mode = "always" | "afterConsent" | "afterFace";
 const UI_VISIBILITY_MODE: Mode = "afterConsent"; // switch to 'afterFace' to show only when landmarks exist
-const DEBUG = false; // set to false to hide the status pill
+const DEBUG = false;// set to false to hide the status pill
 // ===========================================================================
 
 export function ScanPage() {
