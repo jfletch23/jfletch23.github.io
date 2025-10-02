@@ -216,7 +216,7 @@ export function QuizPage() {
                     <div className="mt-8 md:mt-16 w-full flex justify-center">
                         <Card className="shadow-2xl text-center">
                             <p className="text-white text-lg mb-4">
-                                Check out our other pages prior to taking the quiz!
+                                You will be surprised by the answers!
                             </p>
                             <Button onClick={startQuiz} className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500">
                                 Start Quiz
