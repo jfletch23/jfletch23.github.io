@@ -48,11 +48,12 @@ export function ReadingsPanel({ result }: Props) {
 
     return (
         <aside className="h-full w-full bg-neutral-900/90 text-white border-l border-white/10 p-4 md:p-6 overflow-y-auto">
+            <h2 className="text-lg font-bold" style={{ color: GREEN }} >Purpose</h2>
+            <p className="text-sm text-white/80">
+                The purpose of this page is to visually illustrate just how much data can be collected from just your face. Try moving your face around to see the Yaw, Pitch, and Roll adjust or try changing facial expressions to see the blendshape scores change!</p>
+            <br/>
             <h2 className="text-lg font-bold" style={{ color: GREEN }}>
                 Live biometric readings
-                <Tooltip text="The purpose of this page is to visually illustrate just how much data can be collected from just your face. Try moving your face around to see the Yaw, Pitch, and Roll adjust or try changing facial expressions to see the blendshape scores change!">
-                    <Icon icon="bi:question-circle" className="text-white/60 text-base ml-1 cursor-pointer" />
-                </Tooltip>
             </h2>
             <p className="text-sm text-white/80">Local, in-browser only. No data saved.</p>
 
