@@ -16,14 +16,14 @@ export function ProblemsInfoPage(): React.ReactElement {
             title: "Consent",
             text: "Consent has 3 fundamental aspects: manifestation, knowledge, and voluntariness. F.R.T. violates all 3 of these aspects. There is no manifestation of consent with F.R.T. since cameras are constantly recording from afar. In terms of the knowledge aspect, most people are unaware facial recognition technology is being used in places they frequent. This is because there is no way to know if cameras are being used for normal security purposes viewed by a human operator, or if the data is being fed into a facial recognition model and being compared across a database of faces. Lastly, consent must be made voluntarily and not reflexively. Most people will feel obligated to consent to F.R.T. if it is the only option to access a specific area where the technology is being deployed. In conclusion, the current state of facial recognition technology does not embody the principles of consent and it is unlikely in the future to embody those principles due to fundamental problems with how the technology works.",
             img: "/ConsentGraphic.jpg",
-            citation: "Citation placeholder here",
+            citation: `Nguyen, P. (2023, December 1). <a href="https://www.bu.edu/articles/2023/consent-culture-what-consent-means-and-how-to-set-personal-boundaries/" target="_blank" class="underline">Consent Culture: What Consent Means and How to Set Personal Boundaries</a>. Boston University.`,
             bg: "#1f1f1f",
         },
         {
             title: "Biases",
             text: "F.R.T. has been found to be biased especially against marginalized communities. According to a 2019 federal study, Native Americans and African American women had the highest rate of false positives for two different types of F.R.T. One reason for these biases is the lack of diversity in photos used to train the technology. These biases are particularly problematic since one of the primary uses of F.R.T. is law enforcement.",
-            img: "/bias.png",
-            citation: "Citation placeholder here",
+            img: "/biasIcon.png",
+            citation: 'Designed by <a href=\"https://www.freepik.com/icon/morality_6203283#fromView=search&page=1&position=1&uuid=6c112fda-8f3c-44ba-b59b-48b8b798d0ee" target=\"_blank\" class="underline">Freepik</a>',
             bg: "#2a2a2a",
         },
         {
