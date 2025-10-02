@@ -20,14 +20,14 @@ export function ProblemsInfoPage(): React.ReactElement {
             bg: "#1f1f1f",
         },
         {
-            title: "Lighting & Contrast Adjustments",
+            title: "Mitigating Inherit Biases",
             text: "Placeholder text for discussing how light and contrast metrics can mitigate bias.",
             img: "Image Placeholder",
             citation: "Citation placeholder here",
             bg: "#2a2a2a",
         },
         {
-            title: "Regulatory Measures",
+            title: "Government Regulation",
             text: "Placeholder text for explaining regulations at federal and local levels.",
             img: "Image Placeholder",
             citation: "Citation placeholder here",
