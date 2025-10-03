@@ -17,22 +17,20 @@ export function SourcesPage() {
                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>
                             <a
-                                href="https://www.epa.gov/international-cooperation/cleaning-electronic-waste"
+                                href=""
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:underline"
                             >
-                                EPA – Cleaning up E-Waste
                             </a>
                         </li>
                         <li>
                             <a
-                                href="https://www.ilo.org/global/topics/electrical-and-electronic-waste/lang--en/index.htm"
+                                href=""
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:underline"
                             >
-                                International Labour Organization – E-Waste
                             </a>
                         </li>
                     </ul>
@@ -44,22 +42,20 @@ export function SourcesPage() {
                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>
                             <a
-                                href="https://www.epa.gov/international-cooperation/cleaning-electronic-waste"
+                                href=""
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:underline"
                             >
-                                EPA – Cleaning up E-Waste
                             </a>
                         </li>
                         <li>
                             <a
-                                href="https://www.ilo.org/global/topics/electrical-and-electronic-waste/lang--en/index.htm"
+                                href=""
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:underline"
                             >
-                                International Labour Organization – E-Waste
                             </a>
                         </li>
                     </ul>
@@ -74,16 +70,14 @@ export function SourcesPage() {
                         <li>
                             API:{" "}
                             <a
-                                href="https://openai.com/api/"
+                                href=""
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:underline"
                             >
-                                OpenAI API
                             </a>
                         </li>
                         <li>
-                            LLM Prompt Examples (internal links or docs)
                         </li>
                     </ul>
                 </section>
