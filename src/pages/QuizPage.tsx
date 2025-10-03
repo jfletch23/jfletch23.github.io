@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, forwardRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import './QuizPage.css';
+import type { CSSProperties } from 'react';
 
-// This is a simplified version of the Shadcn UI components for a single-file example.
+// Re-using components from previous examples
 const Button = ({ children, onClick, disabled, className }: { children: React.ReactNode, onClick?: () => void, disabled?: boolean, className?: string }) => (
     <button
         onClick={onClick}
@@ -18,10 +21,12 @@ const Button = ({ children, onClick, disabled, className }: { children: React.Re
     </button>
 );
 
-const Card = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <div className={`rounded-lg bg-[#2a2a2a] text-card-foreground shadow-sm p-6 max-w-lg w-full ${className}`}>
-        {children}
-    </div>
+const Card = forwardRef<HTMLDivElement, { children: React.ReactNode, className?: string, style?: CSSProperties }>(
+    ({ children, className, style }, ref) => (
+        <div ref={ref} className={`rounded-lg bg-[#2a2a2a] text-card-foreground shadow-sm p-6 max-w-lg w-full ${className}`} style={style}>
+            {children}
+        </div>
+    )
 );
 
 interface RadioGroupItemProps {
@@ -32,27 +37,26 @@ interface RadioGroupItemProps {
     disabled?: boolean;
     isAnswered: boolean;
     correctAnswerIndex: number;
-    selectedAnswer: number | null;
 }
 
-// Type guard to check if a child is a RadioGroupItem
+interface RadioGroupItemChildProps {
+    value: string;
+}
+
 const isRadioGroupItem = (child: React.ReactNode): child is React.ReactElement<RadioGroupItemProps> => {
-    return React.isValidElement(child) && typeof (child.props as any).value === 'string';
+    return React.isValidElement(child) && (child.props as RadioGroupItemChildProps).value !== undefined;
 };
 
 const RadioGroup = ({ children, onValueChange, value, disabled }: { children: React.ReactNode, onValueChange: (value: string) => void, value: string, disabled: boolean }) => (
     <div role="radiogroup" className="grid gap-2">
         {React.Children.map(children, child => {
-            // Use the new type guard for correct type inference
             if (isRadioGroupItem(child)) {
                 return React.cloneElement(child, {
                     onSelect: () => !disabled && onValueChange(child.props.value),
                     selected: value === child.props.value,
                     disabled: disabled,
-                    // Pass down the correct and selected answer states
                     isAnswered: child.props.isAnswered,
                     correctAnswerIndex: child.props.correctAnswerIndex,
-                    selectedAnswer: child.props.selectedAnswer,
                 });
             }
             return child;
@@ -61,23 +65,20 @@ const RadioGroup = ({ children, onValueChange, value, disabled }: { children: Re
 );
 
 const RadioGroupItem = ({ value, children, onSelect, selected, disabled, isAnswered, correctAnswerIndex }: RadioGroupItemProps) => {
-    // Determine the background color based on the state of the quiz
     const isCorrect = isAnswered && parseInt(value) === correctAnswerIndex;
     const isIncorrect = isAnswered && selected && parseInt(value) !== correctAnswerIndex;
 
     const getBgColor = () => {
-        if (!isAnswered) {
-            // Default color for un-answered state
-            return selected ? 'bg-amber-500' : 'bg-white hover:bg-[#81898a] hover:border-[#81898a]';
+        if (isAnswered) {
+            if (isCorrect) {
+                return 'bg-green-600';
+            }
+            if (isIncorrect) {
+                return 'bg-red-600';
+            }
+            return 'bg-white opacity-50';
         }
-        if (isCorrect) {
-            return 'bg-green-600';
-        }
-        if (isIncorrect) {
-            return 'bg-red-600';
-        }
-        // If answered but not selected, show default gray background
-        return 'bg-white opacity-50';
+        return selected ? 'bg-amber-500' : 'bg-white hover:bg-[#81898a] hover:border-[#81898a]';
     };
 
     const labelClasses = `
@@ -91,8 +92,11 @@ const RadioGroupItem = ({ value, children, onSelect, selected, disabled, isAnswe
             onClick={onSelect}
             className={labelClasses}
         >
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 transition-colors duration-200">
-                <div className={`h-3 w-3 rounded-full ${selected ? 'bg-blue-600' : ''}`} />
+            {/* The change is here: Make the outer div relative */}
+            {/* The previous radio-dot-container class is not needed here */}
+            <div className="relative h-6 w-6 shrink-0 rounded-full border-2 border-gray-300 transition-colors duration-200">
+                {/* Apply the absolute centering class to the blue dot */}
+                <div className={`radio-blue-dot h-3 w-3 rounded-full ${selected ? 'bg-blue-600' : ''}`} />
             </div>
             <span className="text-sm font-bold leading-none text-[#1f1f1f]">
             {children}
@@ -101,7 +105,6 @@ const RadioGroupItem = ({ value, children, onSelect, selected, disabled, isAnswe
     );
 };
 
-// Define the structure for an answer and a question
 interface Answer {
     text: string;
     feedback: string;
@@ -113,7 +116,6 @@ interface Question {
     correctAnswer: number;
 }
 
-// The quiz data with unique explanations for each answer
 const quizData: Question[] = [
     {
         questionText: "What year did facial recognition technology research begin?",
@@ -151,26 +153,36 @@ export function QuizPage() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-    const [isAnswered, setIsAnswered] = useState(false);
     const [isQuizCompleted, setIsQuizCompleted] = useState(false);
     const [quizStarted, setQuizStarted] = useState(false);
 
+    // New state to hold the feedback text for the animation duration
+    const [lastExplanationContent, setLastExplanationContent] = useState<string>("Select an option to see feedback text.");
+
+    const isAnswered = selectedAnswer !== null;
+    const nodeRef = useRef(null);
+
     const handleAnswerSelect = (value: string) => {
+        if (isAnswered) return;
         const selectedIndex = parseInt(value, 10);
         setSelectedAnswer(selectedIndex);
-        setIsAnswered(true);
 
         const isCorrect = selectedIndex === quizData[currentQuestionIndex].correctAnswer;
         if (isCorrect) {
             setScore(score + 1);
         }
+        // Immediately set the explanation content when an answer is selected
+        setLastExplanationContent(quizData[currentQuestionIndex].answers[selectedIndex].feedback);
     };
 
     const handleNextQuestion = () => {
         if (currentQuestionIndex < quizData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedAnswer(null);
-            setIsAnswered(false);
+            // We now have to delay setting the explanation text to avoid it changing mid-animation
+            setTimeout(() => {
+                setLastExplanationContent("Select an option to see feedback text.");
+            }, 500); // Wait for the transition to complete (500ms)
         } else {
             setIsQuizCompleted(true);
         }
@@ -180,8 +192,9 @@ export function QuizPage() {
         setCurrentQuestionIndex(0);
         setScore(0);
         setSelectedAnswer(null);
-        setIsAnswered(false);
+        setLastExplanationContent("Select an option to see feedback text.");
         setIsQuizCompleted(false);
+        setQuizStarted(false);
     };
 
     const startQuiz = () => {
@@ -190,15 +203,9 @@ export function QuizPage() {
 
     const currentQuestion = quizData[currentQuestionIndex];
 
-    // Determine the content for the explanation card
-    let explanationContent = "Select an option to see feedback text.";
-    if (isAnswered && selectedAnswer !== null) {
-        explanationContent = currentQuestion.answers[selectedAnswer].feedback;
-    }
-
     return (
-        <section className="relative min-h-screen bg-[#1f1f1f] overflow-hidden">
-            <div className="relative z-10 px-6 py-24 md:py-32 flex flex-col items-center">
+        <section className="relative min-h-screen bg-[#1f1f1f] overflow-hidden flex justify-center items-center">
+            <div className="relative z-10 px-6 py-24 md:py-32 flex flex-col items-center w-full max-w-4xl">
                 <Card className="shadow-2xl text-center mb-8">
                     <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold text-white">
                         Test Your Knowledge!
@@ -209,7 +216,7 @@ export function QuizPage() {
                     <div className="mt-8 md:mt-16 w-full flex justify-center">
                         <Card className="shadow-2xl text-center">
                             <p className="text-white text-lg mb-4">
-                                Check out our other pages prior to taking the quiz!
+                                You will be surprised by the answers!
                             </p>
                             <Button onClick={startQuiz} className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500">
                                 Start Quiz
@@ -217,9 +224,9 @@ export function QuizPage() {
                         </Card>
                     </div>
                 ) : (
-                    <div className="mt-8 md:mt-16 w-full flex flex-col items-stretch md:flex-row md:justify-center md:space-x-8">
-                        {/* Left Card: The Quiz */}
-                        <Card className="shadow-2xl md:min-w-[400px]">
+                    <div className="mt-8 md:mt-16 w-full flex justify-center items-center relative">
+                        {/* Question Card - positioned absolutely to be centered */}
+                        <Card className="shadow-2xl md:min-w-[400px] z-10">
                             {!isQuizCompleted ? (
                                 <>
                                     <h2 className="text-3xl font-bold mb-2 text-center text-teal-500">
@@ -236,7 +243,6 @@ export function QuizPage() {
                                                 selected={selectedAnswer === index}
                                                 isAnswered={isAnswered}
                                                 correctAnswerIndex={currentQuestion.correctAnswer}
-                                                selectedAnswer={selectedAnswer}
                                             >
                                                 {answer.text}
                                             </RadioGroupItem>
@@ -247,7 +253,7 @@ export function QuizPage() {
                                             onClick={handleNextQuestion}
                                             className="mt-6 w-full bg-[#e3725e] hover:bg-teal-500"
                                         >
-                                            {currentQuestionIndex === quizData.length - 1 ? 'Submit' : 'Next Question'}
+                                            {currentQuestionIndex === quizData.length - 1 ? 'See Score' : 'Next Question'}
                                         </Button>
                                     )}
                                 </>
@@ -266,21 +272,31 @@ export function QuizPage() {
                             )}
                         </Card>
 
-                        {/* Right Card: The Explanation */}
-                        {isAnswered && !isQuizCompleted && (
-                            <Card className="shadow-2xl mt-8 md:mt-0 md:min-w-[400px] flex-1">
+                        {/* Explanation Card - positioned absolutely to animate from the right */}
+                        <CSSTransition
+                            in={isAnswered && !isQuizCompleted}
+                            timeout={500}
+                            classNames="explanation-card"
+                            unmountOnExit={false}
+                            nodeRef={nodeRef}
+                        >
+                            <Card
+                                ref={nodeRef}
+                                className="explanation-card-animated shadow-2xl absolute left-1/2 md:min-w-[400px]"
+                                style={{ transform: 'translateX(calc(50% + 4rem))' }}
+                            >
                                 <div className="flex flex-col h-full">
                                     <h2 className="text-3xl font-bold mb-4 text-center text-[#e3725e]">
                                         Explanation
                                     </h2>
-                                    <div className="text-white text-md flex-1">
+                                    <div className="text-white text-md flex-1 overflow-auto">
                                         <h3 className="text-xl mb-4 text-center text-white">
-                                            {explanationContent}
+                                            {lastExplanationContent}
                                         </h3>
                                     </div>
                                 </div>
                             </Card>
-                        )}
+                        </CSSTransition>
                     </div>
                 )}
             </div>

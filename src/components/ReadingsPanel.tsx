@@ -1,5 +1,35 @@
-import type { FaceLandmarkerResult} from "@mediapipe/tasks-vision";
-import { eulerFromMatrix4} from "../lib/faceLandmarker.ts";
+import { type FaceLandmarkerResult } from "@mediapipe/tasks-vision";
+import { eulerFromMatrix4 } from "../lib/faceLandmarker.ts";
+import { useState, type ReactNode } from "react";
+import { Icon } from "@iconify/react";
+
+interface TooltipProps {
+    children: ReactNode;
+    text: ReactNode; // Updated type
+}
+
+function Tooltip({ children, text }: TooltipProps) {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+    };
+
+    return (
+        <div className="relative inline-block">
+            <span onClick={toggleVisibility} className="cursor-pointer">
+                {children}
+            </span>
+            {isVisible && (
+                <div className="absolute z-50 p-2 bg-neutral-800 text-white text-sm rounded-lg shadow-lg
+                            top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-48 text-left font-normal
+                            transition-opacity duration-300 opacity-100">
+                    {text}
+                </div>
+            )}
+        </div>
+    );
+}
 
 type Props = {
     result: FaceLandmarkerResult | null;
@@ -18,6 +48,10 @@ export function ReadingsPanel({ result }: Props) {
 
     return (
         <aside className="h-full w-full bg-neutral-900/90 text-white border-l border-white/10 p-4 md:p-6 overflow-y-auto">
+            <h2 className="text-lg font-bold" style={{ color: GREEN }} >Purpose</h2>
+            <p className="text-sm text-white/80">
+                The purpose of this page is to visually illustrate just how much data can be collected from just your face. Try moving your face around to see the Yaw, Pitch, and Roll adjust or try changing facial expressions to see the blendshape scores change!</p>
+            <br/>
             <h2 className="text-lg font-bold" style={{ color: GREEN }}>
                 Live biometric readings
             </h2>
@@ -25,15 +59,40 @@ export function ReadingsPanel({ result }: Props) {
 
             <div className="mt-4 space-y-4 text-sm">
                 <section>
-                    <h3 className="font-semibold" style={{ color: GREEN }}>Detection</h3>
+                    <p className="font-semibold flex items-center" style={{ color: GREEN }}>
+                        Detection
+                    </p>
                     <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1">
                         <span className="text-white/70">Face detected:</span>
                         <span>{hasFace ? "Yes" : "No"}</span>
 
-                        <span className="text-white/70">Landmarks:</span>
+                        <div className="flex items-center">
+                            <span className="text-white/70">Landmarks:</span>
+                            <Tooltip text={
+                                <span>
+                        Landmarks are pre-defined specific characteristics on the face such as eye corners, ear lobes, chin, etc. Click{' '}
+                                    <a
+                                        href="https://storage.googleapis.com/mediapipe-assets/documentation/mediapipe_face_landmark_fullsize.png"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-400 underline"
+                                    >
+                            here
+                        </a>
+                                    {' '}to see a face with all 478 landmarks labelled.
+                    </span>
+                            }>
+                                <Icon icon="bi:question-circle" className="text-white/60 text-base ml-1 cursor-pointer" />
+                            </Tooltip>
+                        </div>
                         <span>{hasFace ? lm!.length : 0}</span>
 
-                        <span className="text-white/70">Blendshapes:</span>
+                        <div className="flex items-center">
+                            <span className="text-white/70">Blendshapes:</span>
+                            <Tooltip text="Blendshapes are coefficients representing facial expressions. Each score value seen in the table below represents a probability score from 0 to 1 of the chance that facial expression is present.">
+                                <Icon icon="bi:question-circle" className="text-white/60 text-base ml-1 cursor-pointer" />
+                            </Tooltip>
+                        </div>
                         <span>{result?.faceBlendshapes?.[0]?.categories?.length ?? 0}</span>
                     </div>
                 </section>

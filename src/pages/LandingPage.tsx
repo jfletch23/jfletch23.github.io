@@ -16,7 +16,7 @@ export function LandingPage() {
                 style={{ backgroundImage: `url('/FaceBanner.jpg')` }}
             >
                 <div className="absolute inset-0 bg-black/50" />
-                <h1 className="relative z-10 text-5xl md:text-6xl font-extrabold text-white">
+                <h1 className="relative z-10 text-6xl md:text-8xl font-extrabold italic text-white">
                     Facing The Future
                 </h1>
             </section>
@@ -26,12 +26,14 @@ export function LandingPage() {
 
             {/* Mission Statement */}
             <section className="py-16 px-6 md:px-20 text-center bg-[#1f1f1f]">
-                <h2 className="text-3xl font-bold text-[#e3725e] mb-6">Our Mission</h2>
-                <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    We strive to harness technology responsibly, balancing innovation with
-                    ethical design, and shaping the future of human-AI collaboration in
-                    ways that are inclusive, transparent, and fair.
-                </p>
+                <h2 className="text-4xl font-bold text-[#e3725e] mb-6">Our Mission</h2>
+                <h3 className="text-gray-300 max-w-4xl mx-auto text-xl italic leading-relaxed">
+                    We strive to inform young United States citizens who are less politically active about the dangers of facial recognition technology.
+                </h3>
+            <br/>
+                <h3 className="text-gray-300 max-w-4xl mx-auto text-xl italic leading-relaxed">
+                    We want to encourage engagement with government representatives for increased regulation of facial recognition technology.
+                </h3>
             </section>
 
             {/* 3 Columns Section */}
@@ -122,6 +124,7 @@ export function LandingPage() {
                     ))}
                 </div>
             </section>
+            <p className="text-gray-400 text-center">This website was created with the assistance of generative artificial intelligence</p>
         </div>
     );
 }

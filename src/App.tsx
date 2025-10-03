@@ -6,6 +6,7 @@ import { LandingPage } from "./pages/LandingPage.tsx";
 import { QuizPage } from "./pages/QuizPage.tsx";
 import {SolutionsInfoPage} from "./pages/SolutionsInfoPage.tsx";
 import {ProblemsInfoPage} from "./pages/ProblemsInfoPage.tsx";
+import {SourcesPage} from "./pages/SourcePage.tsx";
 
 export default function App() {
     const location = useLocation();
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/ScanPage" element={<ScanPage />} />
             <Route path="/SolutionsPage" element={<SolutionsInfoPage/>} />
             <Route path="/ProblemsPage" element={<ProblemsInfoPage/>} />
+            <Route path="/SourcesPage" element={<SourcesPage/>} />
         </Routes>
     );
 }

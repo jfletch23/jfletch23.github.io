@@ -9,7 +9,7 @@ import { ReadingsPanel } from "../components/ReadingsPanel.tsx";
 const SHOW_TITLE_AND_CTA = false; // <- default OFF so they don't show unexpectedly
 type Mode = "always" | "afterConsent" | "afterFace";
 const UI_VISIBILITY_MODE: Mode = "afterConsent"; // switch to 'afterFace' to show only when landmarks exist
-const DEBUG = true; // set to false to hide the status pill
+const DEBUG = false;// set to false to hide the status pill
 // ===========================================================================
 
 export function ScanPage() {
@@ -147,9 +147,9 @@ export function ScanPage() {
                             This demo runs <span className="text-white">entirely in your browser</span>.
                             Video and biometric readings are processed locally and{" "}
                             <span className="text-white">not saved or uploaded</span>. Click “Start camera”
-                            to allow your browser to access the camera and see what face trackers collect.
+                            to allow your browser to access the camera and see what face scanners collect.
                         </p>
-                        <div className="mt-5 flex items-center gap-3">
+                        <div className="mt-5 flex w-full justify-center items-center">
                             <button
                                 onClick={() => setConsented(true)}
                                 className="inline-flex items-center justify-center h-11 px-5 rounded-xl
@@ -157,9 +157,6 @@ export function ScanPage() {
                             >
                                 Start camera
                             </button>
-                            <a href="/learn" className="text-white/70 hover:text-white text-sm underline">
-                                Learn more first
-                            </a>
                         </div>
                     </div>
                 </div>
