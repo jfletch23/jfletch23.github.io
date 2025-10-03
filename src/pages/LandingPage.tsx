@@ -124,6 +124,7 @@ export function LandingPage() {
                     ))}
                 </div>
             </section>
+            <p className="text-gray-400 text-center">This website was created with the assistance of generative artificial intelligence</p>
         </div>
     );
 }
