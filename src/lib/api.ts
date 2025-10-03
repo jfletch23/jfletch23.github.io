@@ -20,7 +20,6 @@ function mapOpenStatesPerson(p: any): Representative {
     const emails: string[] = [];
     const contactForms: string[] = [];
 
-    // Handle email/contact form
     if (p.email) {
         if (p.email.startsWith("http")) {
             contactForms.push(p.email);
@@ -29,16 +28,30 @@ function mapOpenStatesPerson(p: any): Representative {
         }
     }
 
-    // Detect role from domain
     const emailOrUrl = p.email || "";
 
-    // Only classify as federal if it's *.senate.gov or *.house.gov
+    // --------------------------
+    // Detect Federal roles
+    // --------------------------
     if (/\.(senate\.gov)/i.test(emailOrUrl)) {
         office = "U.S. Senator";
         category = "federal";
     } else if (/\.(house\.gov)/i.test(emailOrUrl)) {
         office = "U.S. Representative";
         category = "federal";
+    }
+
+    // --------------------------
+    // Detect State/Local Senator
+    // --------------------------
+    if (category === "stateLocal") {
+        // Look at their name, given titles, or OpenStates extras
+        const roleName = (p.current_role?.title || p.name || "").toLowerCase();
+        if (roleName.includes("senator")) {
+            office = "State Senator";
+        } else if (roleName.includes("representative")) {
+            office = "State Representative";
+        }
     }
 
     // Collect phones, faxes, addresses, websites
@@ -78,6 +91,7 @@ function mapOpenStatesPerson(p: any): Representative {
         contactForms,
     };
 }
+
 
 // -----------------------------------------
 // Public function: get representatives by coordinates
