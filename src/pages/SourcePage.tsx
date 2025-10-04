@@ -158,6 +158,139 @@ export function SourcesPage() {
                             </a>
                             .
                         </li>
+                        <li>
+                            Expanding In-Store Biometric Payments With PopID | J.P. Morgan. 6 Aug. 2024,{" "}
+                            <a
+                                href="https://www.jpmorgan.com/about-us/corporate-news/2024/expanding-biometric-payments-popid"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.jpmorgan.com/about-us/corporate-news/2024/expanding-biometric-payments-popid
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Julie, Littman. Steak ‘n Shake Installs Facial Recognition at Self-Ordering Kiosks | Restaurant Dive. 16 Apr. 2024,{" "}
+                            <a
+                                href="https://www.restaurantdive.com/news/steak-n-shake-facial-recognition-self-order-kiosks/713263/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.restaurantdive.com/news/steak-n-shake-facial-recognition-self-order-kiosks/713263/
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Sahota, Neil. “AI Is Changing The Movie Theater Experience… For The Better?” Forbes, 20 May 2024,{" "}
+                            <a
+                                href="https://www.forbes.com/sites/neilsahota/2024/05/20/ai-is-changing-the-movie-theater-experience-for-the-better/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.forbes.com/sites/neilsahota/2024/05/20/ai-is-changing-the-movie-theater-experience-for-the-better/
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Face Recognition in Cinemas. Control in Cinemas | Neurocore.{" "}
+                            <a
+                                href="https://neuro-core.com/blogs/cinema"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://neuro-core.com/blogs/cinema
+                            </a>
+                            . Accessed 4 Oct. 2025.
+                        </li>
+                        <li>
+                            Coldewey, Devin. “This Facial Recognition System Tracks How You’re Enjoying a Movie.” TechCrunch, 25 Jul. 2017,{" "}
+                            <a
+                                href="https://techcrunch.com/2017/07/25/this-facial-recognition-system-tracks-how-youre-enjoying-a-movie/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://techcrunch.com/2017/07/25/this-facial-recognition-system-tracks-how-youre-enjoying-a-movie/
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Rampaul, Grace. “‘The Couples at the Back’: Customer Shows New Movie Theater Cameras—and Reveals Why You Should Watch What You Do in Your Seat.” The Daily Dot, 19 Feb. 2024,{" "}
+                            <a
+                                href="https://www.dailydot.com/news/movie-theater-cameras/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.dailydot.com/news/movie-theater-cameras/
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Elias Wright, The Future of Facial Recognition Is Not Fully Known: Developing Privacy and Security Regulatory Mechanisms for Facial Recognition in the Retail Sector, 29 Fordham Intell. Prop. Media & Ent. L.J. 611 (2019).
+                            Available at:{" "}
+                            <a
+                                href="https://ir.lawnet.fordham.edu/iplj/vol29/iss2/6"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://ir.lawnet.fordham.edu/iplj/vol29/iss2/6
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            "NJIT Library Facial Recognition Testing Site.” NBC New York, 27 Jul. 2018,{" "}
+                            <a
+                                href="https://www.nbcnewyork.com/video/news/local/njit-library-facial-recognition-testing-site_new-york/1825249/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.nbcnewyork.com/video/news/local/njit-library-facial-recognition-testing-site_new-york/1825249/
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Facial Recognition | Center for the Future of Libraries.{" "}
+                            <a
+                                href="https://www.ala.org/future/trends/facialrecognition"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.ala.org/future/trends/facialrecognition
+                            </a>
+                            . Accessed 4 Oct. 2025.
+                        </li>
+                        <li>
+                            “NIST Study Evaluates Effects of Race, Age, Sex on Face Recognition Software.” NIST, Dec. 2019. www.nist.gov,{" "}
+                            <a
+                                href="https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software
+                            </a>
+                            .
+                        </li>
+                        <li>
+                            Grother, P. , Ngan, M. and Hanaoka, K. (2019), Face Recognition Vendor Test Part 3: Demographic Effects, NIST Interagency/Internal Report (NISTIR), National Institute of Standards and Technology, Gaithersburg, MD, [online],{" "}
+                            <a
+                                href="https://doi.org/10.6028/NIST.IR.8280"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://doi.org/10.6028/NIST.IR.8280
+                            </a>
+                            {" "}(Accessed October 2, 2025)
+                        </li>
                     </ul>
                 </section>
 
