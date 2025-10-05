@@ -16,7 +16,7 @@ const Footnote = ({ to, label }: { to: string; label: string }) => (
     <button
         type="button"
         onClick={() => document.getElementById(to)?.scrollIntoView({ behavior: "smooth", block: "start" })}
-        className="align-super text-xs underline text-blue-400 hover:text-blue-300 ml-1"
+        className="cursor-pointer align-super text-xs underline text-blue-400 hover:text-blue-300 ml-1"
         aria-label={`Jump to ${to}`}
     >
         {label}
