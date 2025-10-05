@@ -13,7 +13,7 @@ export function SourcesPage() {
             <div className="space-y-8">
                 {/* Section Block */}
                 <section className="bg-[#2a2a2a] rounded-2xl shadow-md p-6">
-                    <h2 className="text-2xl font-semibold mb-4 text-[#e3725e]">Images</h2>
+                    <h2 className="text-2xl font-semibold mb-4 text-[#e3725e]">Home Page Images</h2>
                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>
                             [Facial recognition hero]. (n.d.). In <em>Facial Recognition Technologies</em>. The Regulatory Review.
@@ -97,7 +97,7 @@ export function SourcesPage() {
 
                 {/* Quiz Sources */}
                 <section className="bg-[#2a2a2a] rounded-2xl shadow-md p-6">
-                    <h2 className="text-2xl font-semibold mb-4 text-[#e3725e]">Quiz</h2>
+                    <h2 className="text-2xl font-semibold mb-4 text-[#e3725e]">Quiz Page</h2>
                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>
                             Li Qinjun, Cui Tianwei, Zhao Yan, Wu Yuying. Facial Recognition Technology: A Comprehensive Overview. Academic Journal of Computing & Information Science (2023), Vol. 6, Issue 7: 15-26.{" "}
@@ -294,23 +294,35 @@ export function SourcesPage() {
                     </ul>
                 </section>
 
-                {/* Misc Section */}
+                {/* Live Scan Page Section */}
                 <section className="bg-[#2a2a2a] rounded-2xl shadow-md p-6">
                     <h2 className="text-2xl font-semibold mb-4 text-[#e3725e]">
-                        Miscellaneous
+                        Live Scan Page
                     </h2>
                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                         <li>
-                            API:{" "}
+                            H. Ouanan, M. Ouanan and B. Aksasse, "Facial landmark localization: Past, present and future," 2016 4th IEEE International Colloquium on Information Science and Technology (CiSt), Tangier, Morocco, 2016, pp. 487-493, doi:{" "}
                             <a
-                                href=""
+                                href="https://ieeexplore.ieee.org/document/7805097"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:underline"
+                                className="underline"
                             >
+                                10.1109/CIST.2016.7805097
                             </a>
+                            .
                         </li>
                         <li>
+                            “Face Landmark Detection Guide  |  Google AI Edge  |  Google AI for Developers.” Google, Google,{" "}
+                            <a
+                                href="https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="underline"
+                            >
+                                https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker
+                            </a>
+                            . Accessed 5 Oct. 2025.
                         </li>
                     </ul>
                 </section>
