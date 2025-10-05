@@ -73,7 +73,7 @@ export function ProblemsInfoPage(): React.ReactElement {
                         <li>False positives were found to be higher in women than men</li>
                         <li>False positives were found to be higher in the elderly and children</li>
                     </ul>
-                    <p>One reason for these biases is the lack of diversity in photos used to train the technology.</p>
+                    <p>One reason for these biases is the lack of diversity in photos used to train the technology.<Footnote to="ref-3" label="[3]" /></p>
                     <p>These biases are particularly problematic since one of the primary uses of F.R.T. is law enforcement.</p>
                 </div>
             ),
@@ -86,11 +86,22 @@ export function ProblemsInfoPage(): React.ReactElement {
             imageLeft: true,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
+                    <ul className="list-disc list-inside space-y-2">
+                        <li>Facial data, just like any other data, can be sold easily</li>
+                        <li>This is particularly troublesome since facial data uniquely links to one person</li>
+                        <ul className="list-[circle] list-inside space-y-1 mt-2 pl-8">
+                            <li>Other data being sold is likely either anonymized or links to a group of people (i.e. expecting mothers).</li>
+                        </ul>
+                        <li>There are already examples of F.R.T. vendors selling facial data to law enforcement agencies to be used in their databases.</li>
+                        <ul className="list-[circle] list-inside space-y-1 mt-2 pl-8">
+                            <li>Clearview AI sold access to their tool to law enforcement agencies<Footnote to="ref-4" label="[4]" /></li>
+                        </ul>
+                    </ul>
                     <p>
-                        Facial data, just like any other data can be sold easily.
-                        This is particularly troublesome since facial data uniquely links to one person.
-                        Other data being sold is likely either anonymized or links to a group of people (i.e. expecting mothers).
-                        There are already examples of F.R.T. vendors selling facial data to law enforcement agencies to be used in their databases.
+
+
+
+
                     </p>
                 </div>
             ),
@@ -103,11 +114,12 @@ export function ProblemsInfoPage(): React.ReactElement {
             imageLeft: false,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
-                    <p>
-                        Facial recognition technology can also be leveraged to deny entry to certain people based purely on their face.
-                        While it is true private companies have always been able to deny entry to individuals, they are now able to do so in much larger numbers and with a higher success rate using F.R.T.
-                        This is problematic because the ability to efficiently deny entry to individuals using F.R.T. gives unchecked power to private companies to mistreat those they subjectively determine are dissidents.
-                    </p>
+                    <ul className="list-disc list-inside space-y-2">
+                        <li>Facial recognition technology can also be leveraged to deny entry to certain people based purely on their face</li>
+                        <li>While it is true private companies have always been able to deny entry to individuals, using F.R.T. they are now able to do so in much larger numbers and with a higher success rate</li>
+                        <li>This is problematic because the ability to efficiently deny entry to individuals using F.R.T. gives unchecked power to private companies to mistreat those they subjectively determine are dissidents</li>
+                        <li>The most notable example of this happening is with Madison Square Garden which uses F.R.T. to deny entry to attorneys engaged in active litigation against them<Footnote to="ref-5" label="[5]" /></li>
+                    </ul>
                 </div>
             ),
         },
@@ -119,14 +131,16 @@ export function ProblemsInfoPage(): React.ReactElement {
             imageLeft: true,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
-                    <p>
-                        F.R.T has been defined by a lack of transparency.
-                        This is because the vendors that provide the technology consider how it works a trade secret.
-                        It is also often unclear what companies are using what vendors, which makes it hard to know who to direct questions to.
-                        In addition, there is a lot of obscurity around how faces get into these databases in the first place.
-                        Because F.R.T. vendors scrape billions of images from the Internet, it becomes muddled and unclear what specific website they got a specific image from.
-                        For example if you found out your face was in a database, you wouldn’t know how to remove your face from the Internet since it would be unclear what website your face was scraped from.
-                    </p>
+                    <p>F.R.T has been defined by a lack of transparency.</p>
+                    <ul className="list-disc list-inside space-y-2">
+                        <li>The vendors that provide the technology consider how it works a trade secret</li>
+                        <li>It is also often unclear what companies are using what vendors, which makes it hard to know who to direct questions to</li>
+                        <li>In addition, there is a lot of obscurity around how faces get into these databases in the first place<Footnote to="ref-6" label="[6]" /></li>
+                        <ul className="list-[circle] list-inside space-y-1 mt-2 pl-8">
+                            <li>Because F.R.T. vendors scrape billions of images from the Internet, it becomes muddled and unclear what specific website they got a specific image from</li>
+                            <li>For example if you found out your face was in a database, you wouldn’t know how to remove your face from the Internet since it would be unclear what website your face was scraped from</li>
+                        </ul>
+                    </ul>
                 </div>
             ),
         },
@@ -199,6 +213,41 @@ export function ProblemsInfoPage(): React.ReactElement {
                                 https://doi.org/10.6028/NIST.IR.8280{' '}
                             </a>
                             (Accessed October 2, 2025)
+                        </span>
+                    </li>
+                    <li id="ref-3">
+                        Grine, Brianna, "The Dangers of Facial Recognition Technology" (2023). Renée Crown University Honors Thesis Projects - All. 1580.
+                        <span className="ml-2">
+                            <a href="https://surface.syr.edu/honors_capstone/1580" className="text-blue-400 underline">
+                                https://surface.syr.edu/honors_capstone/1580{' '}
+                            </a>
+                        </span>
+                    </li>
+                    <li id="ref-4">
+                        Hill, Kashmir. “The Secretive Company That Might End Privacy as We Know It.” New York Times, January 18, 2020.
+                        <span className="ml-2">
+                            <a href="https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html" className="text-blue-400 underline">
+                                https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html
+                            </a>
+                            .
+                        </span>
+                    </li>
+                    <li id="ref-5">
+                        Hill , Kashmir, and Corey Kilgannon. “Madison Square Garden Uses Facial Recognition to Ban Its Owner’s Enemies.” The New York Times, 22 Dec. 2022,
+                        <span className="ml-2">
+                            <a href="https://www.nytimes.com/2022/12/22/nyregion/madison-square-garden-facial-recognition.html" className="text-blue-400 underline">
+                                https://www.nytimes.com/2022/12/22/nyregion/madison-square-garden-facial-recognition.html
+                            </a>
+                            .
+                        </span>
+                    </li>
+                    <li id="ref-6">
+                        Wiewiórowski, Wojciech. “Facial Recognition: A Solution in Search of a Problem?” European Data Protection Supervisor, 28 Oct. 2019,
+                        <span className="ml-2">
+                            <a href="https://www.edps.europa.eu/press-publications/press-news/blog/facial-recognition-solution-search-problem_en" className="text-blue-400 underline">
+                                https://www.edps.europa.eu/press-publications/press-news/blog/facial-recognition-solution-search-problem_en
+                            </a>
+                            .
                         </span>
                     </li>
                 </ol>
