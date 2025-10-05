@@ -122,7 +122,7 @@ const quizData: Question[] = [
         answers: [
             { text: "1997", feedback: "Incorrect. In 1997 Peter N. Belhumeur, Joao P. Hespanha, and David J. Kriegman developed a new method for facial recognition called FisherFaces." },
             { text: "1987", feedback: "Incorrect. In 1987 Lawrence Sirovich and Michael Kirby published a paper in which they determined fewer than 100 values were required to build a unique face template." },
-            { text: "1964", feedback: "Correct! Woodrow Bledsoe started research in 1964 for the company Panoramic Research. Most of the work was not published because it was being sponsored by an unknown intelligence agency. He used a computer to compare distances of key features on the face." },
+            { text: "1964", feedback: "Correct! Woodrow Bledsoe started research in 1964 for the company Panoramic Research. Most of the work was not published because it was being sponsored by an unknown intelligence agency. He used a computer to normalize images of faces to make them the same angle. This allowed for distance measurements of features on the face to be compared across different faces." },
             { text: "1971", feedback: "Incorrect. In 1971 A.J. Goldstein, Leon Harmon, and Ann Lesk published a paper in which they determined 14 feature descriptions are required to uniquely identify someone. An example of a feature description is wide set eyes or full cheeks." },
         ],
         correctAnswer: 2,
