@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                     <a href="#/SolutionsPage" className="hover:text-teal-500">Solutions</a>
                     <a href="#/Quiz" className="hover:text-teal-500">Quiz</a>
                     <a href="#/ScanPage" className="hover:text-teal-500">Live Scan</a>
-                    <a href="#/Representatives" className="hover:text-teal-500">Representatives</a>
+                    <a href="#/Representatives" className="hover:text-teal-500">Write Your Rep</a>
                     <a href="#/SourcesPage" className="hover:text-teal-500">Sources</a>
                 </div>
             </nav>
