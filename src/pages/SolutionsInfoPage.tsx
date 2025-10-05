@@ -29,27 +29,37 @@ export function SolutionsInfoPage(): React.ReactElement {
             title: "Fair Representation in Datasets",
             bg: "#1f1f1f",
             img: "/fairnessIcon.png",
-            citation: 'Designed by <a href="https://www.freepik.com/icon/legal_9894109#fromView=search&page=1&position=10&uuid=c8db0ab4-9928-4a32-9943-0b60c5009d41" target="_blank" class="underline">Freepik</a>',
+            citation:
+                'Designed by <a href="https://www.freepik.com/icon/legal_9894109#fromView=search&page=1&position=10&uuid=c8db0ab4-9928-4a32-9943-0b60c5009d41" target="_blank" class="underline">Freepik</a>',
             imageLeft: true,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
+                    <ul className="list-disc ml-6 space-y-2">
+                        <li>
+                            Expands underrepresented groups by artificially generating balanced data for race, gender, and age, improving recognition accuracy for marginalized demographics
+                            <Footnote to="ref-1" label="[1]" />.
+                        </li>
+                        <li>
+                            Protects privacy by reducing the need to collect real facial images, limiting consent and ownership risks
+                            <Footnote to="ref-7" label="[7]" />.
+                        </li>
+                        <li>
+                            Uses targeted datasets to fine-tune algorithms and improve fairness across multiple groups
+                            <Footnote to="ref-1" label="[1]" />.
+                        </li>
+                        <li>
+                            Not bias-free: generative models can still reproduce issues such as lightening darker skin tones or altering feminine features
+                            <Footnote to="ref-2" label="[2]" />.
+                        </li>
+                        <li>
+                            Trade-off: synthetic data can reduce ethical and privacy risks but may lower accuracy compared to models trained on real data
+                            <Footnote to="ref-7" label="[7]" />.
+                        </li>
+                    </ul>
+
                     <p>
-                        Synthetic data, or computer-generated faces, can make facial recognition fairer by balancing underrepresented
-                        groups.
-                    </p>
-                    <p>
-                        One study found it reduced errors for certain ethnicities and improved fairness across gender and race while
-                        keeping accuracy stable
-                        <Footnote to="ref-1" label="[1]" />.
-                    </p>
-                    <p>
-                        Another study warned that generative models “lighten skin color of non-white faces and transform female features
-                        to be masculine,” showing that synthetic data can also reinforce bias if not carefully designed
-                        <Footnote to="ref-2" label="[2]" />.
-                    </p>
-                    <p>
-                        Together, the findings highlight both the promise and the risks: synthetic data can protect privacy and improve
-                        fairness, but it can also “serve as a cautionary tale” if the generation process is biased.
+                        Synthetic data offers a promising way to make facial recognition fairer and more ethical by increasing diversity and reducing privacy violations.
+                        However, because generation methods can introduce new biases or reduce accuracy, it must be applied carefully to ensure fairness doesn’t come at the cost of reliability.
                     </p>
                 </div>
             ),
@@ -58,23 +68,38 @@ export function SolutionsInfoPage(): React.ReactElement {
             title: "Lighting & Contrast Adjustments",
             bg: "#2a2a2a",
             img: "/lightBulb.png",
-            citation: '<a href="https://commons.wikimedia.org/wiki/File:Light_Bulb_or_Idea_Flat_Icon_Vector.svg" target="_blank" class="underline">Videoplasty.com</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" class="underline">CC BY-SA 4.0</a>, via Wikimedia Commons',
+            citation:
+                '<a href="https://commons.wikimedia.org/wiki/File:Light_Bulb_or_Idea_Flat_Icon_Vector.svg" target="_blank" class="underline">Videoplasty.com</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" class="underline">CC BY-SA 4.0</a>, via Wikimedia Commons',
             imageLeft: false,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
+                    <ul className="list-disc ml-6 space-y-2">
+                        <li>
+                            Lighting and contrast challenges: light interacts differently with various skin tones, making it harder for cameras to capture facial features evenly
+                            <Footnote to="ref-3" label="[3]" />.
+                        </li>
+                        <li>
+                            Real-world inconsistency: in settings like border crossings and commercial areas, lighting changes throughout the day and across locations, unlike the controlled conditions of mugshots
+                            <Footnote to="ref-3" label="[3]" />.
+                        </li>
+                        <li>
+                            Group adaptive classifiers: demographic-aware filters and attention layers help capture key features more equally across groups
+                            <Footnote to="ref-3" label="[3]" />.
+                        </li>
+                        <li>
+                            Adaptive learning layers: models can automatically decide which parts of the network should adjust to reduce group-specific performance gaps
+                            <Footnote to="ref-3" label="[3]" />.
+                        </li>
+                        <li>
+                            Balanced results: tests on major datasets show improved accuracy for underrepresented groups while maintaining overall system reliability
+                            <Footnote to="ref-3" label="[3]" />.
+                        </li>
+                    </ul>
+
                     <p>
-                        Facial capture and image quality play a huge role in the accuracy of facial recognition technology. In many
-                        settings, lighting and contrast are hard to control, and light interacts differently with various skin tones. As
-                        a result, face recognition often performs better on some demographic groups than others, raising fairness and
-                        ethical concerns.
-                    </p>
-                    <p>
-                        One proposed solution is a group adaptive classifier, which applies different filters and attention to faces
-                        depending on demographic attributes, ensuring important features are captured more equally. This method also uses
-                        an automated strategy to decide which layers adapt, plus a new loss function to reduce performance gaps. Tests on
-                        major datasets show that it improves accuracy for under-represented groups and reduces bias while maintaining
-                        overall recognition performance
-                        <Footnote to="ref-3" label="[3]" />.
+                        Improving facial capture means tackling both environmental and algorithmic bias. By combining smarter lighting practices with
+                        adaptive models, facial recognition can perform more consistently across skin tones and in contexts where conditions can’t
+                        always be controlled.
                     </p>
                 </div>
             ),
@@ -83,31 +108,29 @@ export function SolutionsInfoPage(): React.ReactElement {
             title: "Regulatory Measures",
             bg: "#1f1f1f",
             img: "government.png",
-            citation: 'Designed by <a href="https://www.freepik.com/icon/embassy_3061919#fromView=search&page=1&position=3&uuid=19056be9-ddb3-4682-90d5-44f3916a107c" target="_blank" class="underline">Freepik</a>',
+            citation:
+                'Designed by <a href="https://www.freepik.com/icon/embassy_3061919#fromView=search&page=1&position=3&uuid=19056be9-ddb3-4682-90d5-44f3916a107c" target="_blank" class="underline">Freepik</a>',
             imageLeft: true,
             render: (
                 <div className="text-lg leading-relaxed space-y-4 text-white">
+                    <ul className="list-disc ml-6 space-y-2">
+                        <li>
+                            <strong>Federal:</strong> The Commercial Facial Recognition Privacy Act of 2019 would require consent for collecting and sharing facial data, but it is still under debate and there is no nationwide law yet
+                            <Footnote to="ref-4" label="[4]" />.
+                        </li>
+                        <li>
+                            <strong>State:</strong> Illinois BIPA protects biometric identifiers, requires written consent, bans selling biometric data, and allows damages without proof of harm
+                            <Footnote to="ref-5" label="[5]" /><Footnote to="ref-6" label="[6]" />.
+                        </li>
+                        <li>
+                            <strong>Local:</strong> San Francisco and Somerville, MA, restrict government use of facial recognition and require privacy plans and allow residents to sue for violations
+                            <Footnote to="ref-6" label="[6]" />.
+                        </li>
+                    </ul>
+
                     <p>
-                        Facial recognition technology (FRT) collects permanent and personal data, yet there is no overarching U.S.
-                        federal law.
-                    </p>
-                    <p>
-                        The Commercial Facial Recognition Privacy Act of 2019, which requires consent for data use, is still under debate
-                        six years later
-                        <Footnote to="ref-4" label="[4]" />.
-                    </p>
-                    <p>
-                        Illinois’s Biometric Information Privacy Act (BIPA) protects identifiers like fingerprints and facial geometry,
-                        prohibiting private entities from profiting on such data and requiring “informed written consent” before
-                        collection
-                        <Footnote to="ref-5" label="[5]" />.
-                    </p>
-                    <p>
-                        Courts ruled in Rosenbach v. Six Flags that damages must be paid even without proof of harm, a major win for
-                        individuals
-                        <Footnote to="ref-6" label="[6]" />. However, BIPA does not cover government use. Some cities, like San Francisco
-                        and Somerville, have banned government agencies from using FRT, requiring oversight and privacy plans
-                        <Footnote to="ref-6" label="[6]" />.
+                        Facial recognition is advancing quickly and biometric data is permanent. The current mix of local and state rules leaves gaps that risk privacy.
+                        A unified federal standard is needed to ensure consent, transparency, and accountability across the country.
                     </p>
                 </div>
             ),
@@ -221,6 +244,14 @@ export function SolutionsInfoPage(): React.ReactElement {
                         <span className="ml-2">
                             <a href="https://doi.org/10.3389/fdata.2024.1337465" className="text-blue-400 underline">
                                 https://doi.org/10.3389/fdata.2024.1337465
+                            </a>
+                        </span>
+                    </li>
+                    <li id="ref-7">
+                        Zhao, C. (2025, August 22). Can fake faces make AI training more ethical? <em>Science News</em>.
+                        <span className="ml-2">
+                            <a href="https://www.sciencenews.org/article/fake-faces-ai-training-ethical" className="text-blue-400 underline">
+                                https://www.sciencenews.org/article/fake-faces-ai-training-ethical
                             </a>
                         </span>
                     </li>
