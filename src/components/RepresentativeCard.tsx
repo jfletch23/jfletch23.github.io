@@ -20,7 +20,7 @@ export function RepresentativeCard({ rep, selected, onSelect }: Props) {
     return (
         <Card
             className={`cursor-pointer mb-2 bg-[#2a2a2a] text-white border border-gray-700 ${
-                selected ? "ring-2 ring-primary" : ""
+                selected ? "ring-2 ring-white" : ""
             }`}
             onClick={onSelect}
         >
