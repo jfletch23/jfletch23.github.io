@@ -96,7 +96,7 @@ export function SolutionsInfoPage(): React.ReactElement {
                     </ul>
 
                     <p>
-                        Improving how faces are captured and how models adapt to real-world conditions helps facial recognition work more fairly and accurately for everyone.
+                        Improving how faces are captured and how models adapt to real world conditions helps facial recognition work more fairly and accurately for everyone.
                     </p>
                 </div>
             ),
