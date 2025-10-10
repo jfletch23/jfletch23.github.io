@@ -36,36 +36,35 @@ export function SolutionsInfoPage(): React.ReactElement {
                 <div className="text-lg leading-relaxed space-y-4 text-white">
                     <ul className="list-disc ml-6 space-y-2">
                         <li>
-                            Expands underrepresented groups by artificially generating balanced data for race, gender, and age, improving recognition accuracy for marginalized demographics
+                            Synthetic data is used to balance datasets by generating realistic faces that better represent different races, genders, and ages, improving recognition for groups that are often underrepresented
                             <Footnote to="ref-1" label="[1]" />.
                         </li>
                         <li>
-                            Protects privacy by reducing the need to collect real facial images, limiting consent and ownership risks
+                            It helps protect privacy because systems can be trained without collecting new real facial images, reducing consent and ownership risks
                             <Footnote to="ref-7" label="[7]" />.
                         </li>
                         <li>
-                            Uses targeted datasets to fine-tune algorithms and improve fairness across multiple groups
+                            Researchers use synthetic data to fine-tune algorithms and make facial recognition perform more fairly across different demographics
                             <Footnote to="ref-1" label="[1]" />.
                         </li>
                         <li>
-                            Not bias-free: generative models can still reproduce issues such as lightening darker skin tones or altering feminine features
+                            The generative AI models used to make synthetic data are not bias-free and can still reproduce issues such as lightening darker skin tones or altering feminine features
                             <Footnote to="ref-2" label="[2]" />.
                         </li>
                         <li>
-                            Trade-off: synthetic data can reduce ethical and privacy risks but may lower accuracy compared to models trained on real data
+                            Synthetic data lowers the ethical risks of using real images but may slightly reduce accuracy compared with real world training data
                             <Footnote to="ref-7" label="[7]" />.
                         </li>
                     </ul>
 
                     <p>
-                        Synthetic data offers a promising way to make facial recognition fairer and more ethical by increasing diversity and reducing privacy violations.
-                        However, because generation methods can introduce new biases or reduce accuracy, it must be applied carefully to ensure fairness doesn’t come at the cost of reliability.
+                        Synthetic data is becoming an important tool for creating fairer facial recognition systems. It increases diversity and protects privacy, but it is not free of errors and must be carefully tested and scrutinized before being applied to real world use.
                     </p>
                 </div>
             ),
         },
         {
-            title: "Lighting & Contrast Adjustments",
+            title: "Mitigating Environmental Biases",
             bg: "#2a2a2a",
             img: "/lightBulb.png",
             citation:
@@ -75,31 +74,29 @@ export function SolutionsInfoPage(): React.ReactElement {
                 <div className="text-lg leading-relaxed space-y-4 text-white">
                     <ul className="list-disc ml-6 space-y-2">
                         <li>
-                            Lighting and contrast challenges: light interacts differently with various skin tones, making it harder for cameras to capture facial features evenly
+                            Light reflects differently on different skin tones, so cameras don’t always capture features evenly
                             <Footnote to="ref-3" label="[3]" />.
                         </li>
                         <li>
-                            Real-world inconsistency: in settings like border crossings and commercial areas, lighting changes throughout the day and across locations, unlike the controlled conditions of mugshots
+                            Real world settings have shifting light and contrast, which lowers accuracy compared with controlled photos
                             <Footnote to="ref-3" label="[3]" />.
                         </li>
                         <li>
-                            Group adaptive classifiers: demographic-aware filters and attention layers help capture key features more equally across groups
+                            Researchers show models can be trained to focus on key facial features more evenly across groups
                             <Footnote to="ref-3" label="[3]" />.
                         </li>
                         <li>
-                            Adaptive learning layers: models can automatically decide which parts of the network should adjust to reduce group-specific performance gaps
-                            <Footnote to="ref-3" label="[3]" />.
+                            Small appearance changes like makeup, facial hair, or expressions can still trip systems up
+                            <Footnote to="ref-8" label="[8]" />.
                         </li>
                         <li>
-                            Balanced results: tests on major datasets show improved accuracy for underrepresented groups while maintaining overall system reliability
-                            <Footnote to="ref-3" label="[3]" />.
+                            New editing aware methods help keep a person’s identity consistent after those changes and improve match rates
+                            <Footnote to="ref-8" label="[8]" />.
                         </li>
                     </ul>
 
                     <p>
-                        Improving facial capture means tackling both environmental and algorithmic bias. By combining smarter lighting practices with
-                        adaptive models, facial recognition can perform more consistently across skin tones and in contexts where conditions can’t
-                        always be controlled.
+                        Improving how faces are captured and how models adapt to real-world conditions helps facial recognition work more fairly and accurately for everyone.
                     </p>
                 </div>
             ),
@@ -115,22 +112,21 @@ export function SolutionsInfoPage(): React.ReactElement {
                 <div className="text-lg leading-relaxed space-y-4 text-white">
                     <ul className="list-disc ml-6 space-y-2">
                         <li>
-                            <strong>Federal:</strong> The Commercial Facial Recognition Privacy Act of 2019 would require consent for collecting and sharing facial data, but it is still under debate and there is no nationwide law yet
+                            The Commercial Facial Recognition Privacy Act of 2019 is a proposed federal law intended to give individuals more control over their facial data by requiring consent, and it is still being debated in Congress
                             <Footnote to="ref-4" label="[4]" />.
                         </li>
                         <li>
-                            <strong>State:</strong> Illinois BIPA protects biometric identifiers, requires written consent, bans selling biometric data, and allows damages without proof of harm
+                            Illinois’ Biometric Information Privacy Act (BIPA) protects biometric identifiers like facial geometry, fingerprints, and iris scans, requires written consent, bans selling biometric data, and allows individuals to claim damages even without proving harm
                             <Footnote to="ref-5" label="[5]" /><Footnote to="ref-6" label="[6]" />.
                         </li>
                         <li>
-                            <strong>Local:</strong> San Francisco and Somerville, MA, restrict government use of facial recognition and require privacy plans and allow residents to sue for violations
+                            Cities such as San Francisco and Somerville, MA, have taken stricter action by banning government use of facial recognition and requiring agencies to submit privacy plans to maintain accountability
                             <Footnote to="ref-6" label="[6]" />.
                         </li>
                     </ul>
 
                     <p>
-                        Facial recognition is advancing quickly and biometric data is permanent. The current mix of local and state rules leaves gaps that risk privacy.
-                        A unified federal standard is needed to ensure consent, transparency, and accountability across the country.
+                        Biometric data is personal and permanent, and the current patchwork of laws leaves major privacy gaps. A unified federal standard is needed to ensure transparency, informed consent, and consistent protection nationwide.
                     </p>
                 </div>
             ),
@@ -252,6 +248,32 @@ export function SolutionsInfoPage(): React.ReactElement {
                         <span className="ml-2">
                             <a href="https://www.sciencenews.org/article/fake-faces-ai-training-ethical" className="text-blue-400 underline">
                                 https://www.sciencenews.org/article/fake-faces-ai-training-ethical
+                            </a>
+                        </span>
+                    </li>
+                    <li id="ref-8">
+                        Banerjee, S., Mullangi, S. P., Wagle, S., Hegde, C., & Memon, N. (2024). Mitigating the Impact of Attribute Editing on Face Recognition.
+                        <em>IEEE International Conference on Biometrics, Theory, Applications and Systems</em>, 1–10.
+                        <span className="ml-2">
+                            <a
+                                href="https://doi.org/10.1109/IJCB62174.2024.10744430"
+                                className="text-blue-400 underline"
+                                target="_blank"
+                            >
+                                https://doi.org/10.1109/IJCB62174.2024.10744430
+                            </a>
+                      </span>
+                    </li>
+                    <li id="ref-9">
+                        McConvey, J. R. (2025, August 25). Fairness in facial recognition hinges on mix of factors, including cultural norms.
+                        <em>Biometric Update | Biometrics News, Companies and Explainers.</em> BiometricUpdate.com.
+                        <span className="ml-2">
+                            <a
+                                href="https://www.biometricupdate.com/202508/fairness-in-facial-recognition-hinges-on-mix-of-factors-including-cultural-norms"
+                                className="text-blue-400 underline"
+                                target="_blank"
+                            >
+                                https://www.biometricupdate.com/202508/fairness-in-facial-recognition-hinges-on-mix-of-factors-including-cultural-norms
                             </a>
                         </span>
                     </li>

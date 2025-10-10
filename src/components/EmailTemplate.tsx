@@ -24,16 +24,15 @@ export function EmailTemplate({ selectedRep }: Props) {
         if (selectedRep) {
             setText(
                 `Dear ${selectedRep.office} ${selectedRep.name},\n\n` +
-                `I am writing to urge you to support strong legislation and oversight of facial recognition technology (FRT).\n\n` +
-                `The rapid advancement of FRT and the deeply personal nature of biometric data make it critical that our laws and policies keep pace.\n\n` +
-                `Some states and cities have already taken action, such as Illinois’ Biometric Information Privacy Act (BIPA), which requires informed written consent for the collection of biometric data, and local bans in San Francisco and Somerville on government use of FRT without oversight. These are important steps, but a patchwork of local laws is not enough to protect people across the country. Whether at the federal, state, or local level, comprehensive protections are urgently needed.\n\n` +
-                `I ask that leaders establish regulation modeled on these frameworks and include an independent oversight panel made up of computer scientists, sociologists, judicial privacy experts, and ethicists. This panel should review any FRT deployments and require:\n\n` +
-                `- A clear plan for informed written consent and the ability for individuals to withdraw consent at any time.\n` +
-                `- A detailed explanation of how agencies and companies plan to mitigate demographic biases in their systems.\n` +
-                `- Rigorous testing protocols to evaluate whether FRT systems meet fairness and accuracy thresholds across all demographics. If results are too skewed, those systems should not be permitted for use.\n\n` +
-                `Such oversight would not only defend the privacy and civil rights of individuals but also ensure that any use of FRT meets standards of fairness, transparency, and accountability. This applies equally to federal, state, and local governments considering FRT adoption.\n\n` +
-                `I strongly encourage you to take leadership on this issue and protect communities.\n\n` +
-                `Thank you for your time and service.\n\n` +
+                `I’m writing to ask that you support strong legislation and oversight of facial recognition technology (FRT).\n\n` +
+                `The rapid growth of FRT and the personal nature of biometric data makes it critical that our laws and policies keep up.\n\n` +
+                `Some states and cities have already taken action — for example, Illinois’ Biometric Information Privacy Act (BIPA) requires written consent before collecting biometric data, and places like San Francisco, CA and Somerville, MA have banned government use of FRT without oversight. These are important steps, but a patchwork of local laws isn’t enough to protect everyone across the country. Whether at the federal, state, or local level, stronger and more consistent protections are urgently needed.\n\n` +
+                `I hope lawmakers will build on these frameworks and include an independent oversight panel made up of computer scientists, sociologists, privacy experts, and ethicists. This panel should review any FRT systems before deployment and require:\n\n` +
+                `- A clear plan for informed consent and the ability for individuals to withdraw that consent.\n` +
+                `- An explanation of how agencies or companies plan to reduce demographic bias in their systems.\n` +
+                `- Testing to ensure FRT meets fairness and accuracy standards across all demographics. If the results are too uneven, those systems shouldn’t be allowed in use.\n\n` +
+                `This kind of oversight would protect people’s privacy and civil rights while also making sure FRT is used responsibly and fairly. The same rules should apply at every level of government.\n\n` +
+                `Thanks so much for your time and for the work you do.\n\n` +
                 `Sincerely,\n` +
                 `[Your Name]`
             );
